@@ -1,0 +1,250 @@
+.container {
+    margin: 0 auto;
+    padding: 0 2rem;
+    max-width: 128rem;
+
+    @include s-md {
+        padding: 0;
+        width: 90%;
+    }
+}
+
+.heading {
+    font: 700 2.4rem / 150% $raleway;
+    color: $color-white;
+}
+
+.text {
+    font: 400 1.4rem / 160% $open-sans;
+}
+
+.button {
+    position: relative;
+    padding: 1.05em 2em;
+    font-weight: 700;
+    color: $color-white;
+    background: $gradient-cyan-blue;
+    border: none;
+    border-radius: 3em;
+    cursor: pointer;
+
+    @include s-md {
+        padding: 1.6rem;
+        font-size: 1.6rem;
+    }
+
+    &::after {
+        position: absolute;
+        left: 0;
+        top: 0;
+        border-radius: inherit;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        box-shadow: 0 1rem 3rem rgba($color-blue, 0.5);
+        content: '';
+        transition: opacity 0.3s;
+    }
+
+    &:hover {
+        &::after {
+            opacity: 1;
+        }
+    }
+
+    &:focus {
+        outline: none;
+        filter: brightness(1.05);
+    }
+}
+
+.input {
+    padding: 1em 2em;
+    color: $color-intro-signup-background;
+    border: 1px solid transparent;
+    border-radius: 3em;
+
+    @include s-md {
+        padding: 1.6rem 2.4em;
+        font-size: 1.5rem;
+    }
+
+    &::placeholder {
+        color: $color-light-gray;
+        font-size: 1.2rem;
+
+        @include s-md {
+            font-size: unset;
+        }
+    }
+
+    &:focus {
+        outline: none;
+        border: 1px solid hsl(0, 0%, 90%);
+    }
+}
+
+//features-card
+
+.card {
+    display: grid;
+    justify-items: center;
+    gap: 1rem;
+
+    &__icon {
+        margin-bottom: 2rem;
+        width: 6.5rem;
+        height: 6.5rem;
+
+        @include s-lg {
+            margin-bottom: 1rem;
+            width: 8.4rem;
+            height: 8.4rem;
+        }
+    }
+
+    &__heading {
+        @extend .heading;
+
+        text-align: center;
+        font-size: 1.8rem;
+
+        @include s-lg {
+            font-size: 2rem;
+        }
+    }
+
+    &__text {
+        @extend .text;
+
+        max-width: 95%;
+        text-align: center;
+    }
+}
+
+.fancy-link {
+    position: relative;
+    font-size: 1.2rem;
+    color: $color-cyan;
+
+    @include s-md {
+        font-size: 1.6rem;
+    }
+
+    &::before {
+        position: absolute;
+        bottom: -0.5rem;
+        width: 100%;
+        height: 0.1rem;
+        background-color: $color-cyan;
+        content: '';
+        transition: transform 0.3s;
+    }
+
+    &::after {
+        display: inline-block;
+        margin-bottom: 0.2rem;
+        margin-left: 0.6rem;
+        vertical-align: middle;
+        width: 1.6rem;
+        height: 1.6rem;
+        background: url('../images/icon-arrow.svg') no-repeat;
+        content: '';
+    }
+
+    &:hover {
+        &::before {
+            transform: scaleY(2);
+        }
+    }
+}
+
+.testimonial {
+    position: relative;
+    padding: 2.4rem 2rem 2rem;
+    max-width: 36rem;
+    background-color: $color-testimonials-background;
+    border-radius: 0.6rem;
+
+    @include s-md {
+        padding: 3.6rem 3rem 2rem;
+    }
+
+    &__quote {
+        @extend .text;
+
+        margin-bottom: 1.5rem;
+        font-size: 1rem;
+        line-height: 180%;
+
+        @include s-md {
+            margin-bottom: 2rem;
+            font-size: 1.4rem;
+            line-height: 160%;
+        }
+    }
+
+    &__author {
+        display: grid;
+        grid-template-areas:
+            'photo name'
+            'photo position';
+        justify-content: start;
+        align-items: center;
+        gap: 0 1rem;
+    }
+
+    &__photo {
+        grid-area: photo;
+
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+    }
+
+    &__name {
+        @extend .text;
+        grid-area: name;
+
+        font-size: 1.1rem;
+        font-weight: 700;
+    }
+
+    &__position {
+        @extend .text;
+        grid-area: position;
+
+        font-size: 0.8rem;
+    }
+}
+
+.social {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+
+    &__link {
+        display: grid;
+        place-content: center;
+        width: 2.8rem;
+        height: 2.8rem;
+        border-radius: 50%;
+        border: 1px solid $color-white;
+        transition: background-color 0.3s;
+
+        &:hover {
+            background-color: $color-white;
+
+            .social__icon {
+                color: $color-footer-background;
+            }
+        }
+    }
+
+    &__icon {
+        width: 1.3rem;
+        height: 1.3rem;
+        color: $color-white;
+        transition: color 0.3s;
+    }
+}

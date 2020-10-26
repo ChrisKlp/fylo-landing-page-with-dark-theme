@@ -1,0 +1,547 @@
+@import './reset';
+@import './mixins';
+@import './base';
+@import './components';
+
+.header {
+    background-color: $color-intro-signup-background;
+
+    &__container {
+        @extend .container;
+
+        padding-top: 6vmin;
+        padding-bottom: 12.8vmin;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__logo {
+        max-width: 17.8rem;
+        width: 25%;
+        font-size: 0;
+    }
+
+    &__nav {
+        display: flex;
+    }
+
+    &__nav-list {
+        display: flex;
+        gap: 5.2vmin;
+    }
+
+    &__nav-link {
+        font-size: 1.2rem;
+        color: $color-white;
+        transition: color 0.3s;
+
+        &:hover {
+            color: $color-cyan;
+        }
+    }
+}
+
+.intro {
+    position: relative;
+
+    &::after {
+        position: absolute;
+        width: 100%;
+        height: 120%;
+        bottom: calc(65.5rem - 100vmin);
+        background: url('../images/bg-curvy-mobile.svg') no-repeat center bottom / 100%
+            $color-intro-signup-background;
+        content: '';
+        z-index: -1;
+    }
+
+    &__container {
+        @extend .container;
+
+        position: relative;
+        padding-bottom: 8rem;
+        z-index: 1;
+    }
+
+    &__image {
+        margin: 0 auto;
+        margin-bottom: 3.25rem;
+        max-width: 71.5rem;
+        width: 90%;
+    }
+
+    &__content {
+        text-align: center;
+    }
+
+    &__heading {
+        @extend .heading;
+
+        margin: 0 auto;
+        margin-bottom: 1.4rem;
+        max-width: 68rem;
+    }
+
+    &__text {
+        @extend .text;
+
+        margin: 0 auto;
+        margin-bottom: 2.4rem;
+        width: 90%;
+        max-width: 59rem;
+    }
+
+    &__button {
+        @extend .button;
+
+        width: 70%;
+        max-width: 28rem;
+    }
+}
+
+.features {
+    &__container {
+        @extend .container;
+
+        padding-top: 4.5rem;
+        padding-bottom: 8rem;
+
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+        justify-content: center;
+        gap: 8rem;
+    }
+
+    &__card {
+        @extend .card;
+    }
+}
+
+.works {
+    &__container {
+        @extend .container;
+
+        padding-top: 7rem;
+        padding-bottom: 7rem;
+    }
+
+    &__image {
+        margin: 0 auto;
+        margin-bottom: 3.75rem;
+        width: 95%;
+        max-width: 61rem;
+    }
+
+    &__content {
+        margin: 0 auto;
+        width: 97%;
+        display: grid;
+        gap: 1.5rem;
+    }
+
+    &__heading {
+        @extend .heading;
+
+        font-size: 1.8rem;
+    }
+
+    &__text {
+        @extend .text;
+    }
+}
+
+.testimonials {
+    &__container {
+        @extend .container;
+
+        padding-top: 11rem;
+        padding-bottom: 9rem;
+        width: 87.5%;
+        max-width: 116rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+        justify-content: center;
+        justify-items: center;
+        gap: 2.3rem;
+    }
+}
+
+.testimonial:first-child {
+    &::before {
+        position: absolute;
+        top: -1.7rem;
+        left: 0.5rem;
+        width: 3vmax;
+        height: 2.3vmax;
+        background: url('../images/bg-quotes.png') no-repeat 0 0 / contain;
+        content: '';
+        z-index: -1;
+    }
+}
+
+.signUp {
+    &__container {
+        @extend .container;
+
+        position: relative;
+        margin-top: 6rem;
+        padding: 3.5rem 3rem;
+        max-width: 86rem;
+        width: 90%;
+        background-color: $color-intro-signup-background;
+        border-radius: 1rem;
+        box-shadow: 0 0.7rem 0.7rem hsla(0, 0%, 0%, 0.2);
+    }
+
+    &__heading {
+        @extend .heading;
+
+        margin-bottom: 1.6rem;
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    &__text {
+        @extend .text;
+
+        margin-bottom: 3rem;
+        text-align: center;
+    }
+
+    &__form {
+        display: grid;
+        gap: 2.5rem;
+    }
+
+    &__input {
+        @extend .input;
+    }
+
+    &__button {
+        @extend .button;
+    }
+}
+
+.footer {
+    background-color: $color-footer-background;
+
+    &__container {
+        @extend .container;
+
+        margin-top: -17.8rem;
+        padding-top: 25rem;
+        padding-bottom: 3rem;
+        color: $color-white;
+
+        a {
+            color: $color-white;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__logo {
+        margin-bottom: 4rem;
+        height: 5.3rem;
+        background-color: $color-white;
+        mask: url('../images/logo.svg') no-repeat 0 0 / contain;
+    }
+
+    &__contacts {
+        margin-bottom: 8rem;
+        display: grid;
+        gap: 1.8rem;
+    }
+
+    &__contact {
+        display: flex;
+        align-items: center;
+        gap: 2.5rem;
+        font-size: 1.6rem;
+        line-height: 150%;
+        letter-spacing: 0.03rem;
+
+        &::before {
+            flex: 0 0 2rem;
+            height: 1.8rem;
+            content: '';
+        }
+    }
+
+    .contact-location {
+        &::before {
+            margin-top: 0.5rem;
+            align-self: flex-start;
+            background: url('../images/icon-location.svg') no-repeat;
+        }
+    }
+
+    .contact-phone {
+        font-size: 1.4rem;
+
+        &::before {
+            background: url('../images/icon-phone.svg') no-repeat;
+        }
+    }
+
+    .contact-email {
+        font-size: 1.4rem;
+
+        &::before {
+            margin-top: 0.3rem;
+            background: url('../images/icon-email.svg') no-repeat;
+        }
+    }
+
+    &__nav {
+        margin-bottom: 8rem;
+    }
+
+    &__nav-list {
+        display: grid;
+        gap: 2rem;
+
+        & li:nth-child(5) {
+            padding-top: 2.6rem;
+        }
+    }
+
+    &__nav-link {
+        font-size: 1.5rem;
+    }
+
+    &__social {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (min-width: 576px) {
+    .intro::after {
+        bottom: 5rem;
+    }
+
+    .footer {
+        &__container {
+            display: grid;
+            grid-template-areas:
+                'logo logo'
+                'contact nav'
+                'social social';
+            grid-template-columns: 50% 1fr;
+            gap: 0 5rem;
+            align-items: start;
+        }
+
+        &__logo {
+            grid-area: logo;
+        }
+
+        &__contacts {
+            grid-area: contact;
+        }
+
+        &__nav {
+            grid-area: nav;
+        }
+
+        &__nav-list {
+            grid: repeat(4, 1fr) / repeat(2, 1fr);
+            grid-auto-flow: column;
+
+            & li:nth-child(5) {
+                padding-top: 0;
+            }
+        }
+
+        &__social {
+            grid-area: social;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .header {
+        &__nav-list {
+            gap: 5.7rem;
+        }
+
+        &__nav-link {
+            font-size: 1.6rem;
+        }
+    }
+
+    .features {
+        &__container {
+            grid-template-columns: repeat(2, minmax(28rem, 38rem));
+            gap: 8rem;
+        }
+    }
+
+    .works {
+        &__heading {
+            margin-bottom: 0.6rem;
+            font-size: 3rem;
+        }
+
+        &__fancy-link {
+            margin-top: 0.6rem;
+        }
+    }
+
+    .testimonial:first-child {
+        &::before {
+            top: -3rem;
+            left: -1rem;
+            width: 5rem;
+            height: 5rem;
+        }
+    }
+
+    .signUp {
+        &__heading {
+            font-size: 3.2rem;
+        }
+
+        &__form {
+            display: grid;
+            grid-template-columns: 68% 1fr;
+        }
+
+        &__button,
+        &__input {
+            font-size: 1.4rem;
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .header {
+        &__container {
+            padding-top: 7rem;
+            padding-bottom: 8rem;
+        }
+    }
+
+    .intro {
+        &::after {
+            bottom: -6rem;
+            background: url('../images/bg-curvy-desktop.svg') no-repeat center bottom / 100%
+                $color-intro-signup-background;
+        }
+
+        &__container {
+            padding-bottom: 14rem;
+        }
+
+        &__heading {
+            margin-bottom: 3.5rem;
+            font-size: 4rem;
+        }
+
+        &__text {
+            font-size: 2rem;
+            margin-bottom: 2.5rem;
+        }
+    }
+
+    .features {
+        &__container {
+            padding-top: 3rem;
+            padding-bottom: 6.5rem;
+            gap: 8rem 12rem;
+        }
+    }
+
+    .works {
+        &__container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+        }
+
+        &__content {
+            padding: 3rem 2rem 0 5rem;
+        }
+
+        &__image {
+            margin: 0;
+            margin-left: auto;
+        }
+
+        &__heading {
+            max-width: 40rem;
+            font-size: 4rem;
+            line-height: 125%;
+        }
+
+        &__text {
+            font-size: 1.6rem;
+        }
+    }
+
+    .testimonials {
+        &__container {
+            gap: 3rem;
+        }
+    }
+
+    .testimonial:first-child {
+        &::before {
+            top: -4rem;
+            width: 5.5rem;
+            height: 5.5rem;
+        }
+    }
+
+    .signUp {
+        &__container {
+            margin-top: 13rem;
+            padding: 3rem 7.5rem;
+        }
+    }
+
+    .footer {
+        &__container {
+            margin-top: -11rem;
+            padding-top: 20rem;
+
+            grid-template-areas:
+                'logo . . .'
+                'contact contact nav social';
+            grid-template-columns: 28% 28% 22% 1fr;
+        }
+
+        &__logo {
+            margin-bottom: 3.5rem;
+            margin-left: 4rem;
+        }
+
+        &__contacts {
+            margin-left: 4rem;
+
+            grid-template-areas:
+                'location phone'
+                'location email';
+            grid-template-columns: 60% 1fr;
+            gap: 0 2.8rem;
+            align-items: start;
+        }
+
+        .contact-location {
+            grid-area: location;
+            max-width: 40rem;
+        }
+
+        .contact-phone {
+            grid-area: phone;
+        }
+
+        .contact-email {
+            grid-area: email;
+        }
+    }
+}
