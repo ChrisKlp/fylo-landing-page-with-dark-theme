@@ -46,13 +46,3 @@ input {
     font-family: inherit;
     font-size: inherit;
 }
-
-.design {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-
-    .jotpeg {
-        height: 9036px;
-        background: url('../design/mobile-design.jpg') no-repeat 0 0 / 100%;
-    }
-}
